@@ -1,0 +1,29 @@
+package com.softweek.softweek.utils;
+
+import org.springframework.util.ReflectionUtils;
+
+import java.lang.reflect.Field;
+import java.util.Map;
+
+public class Utils {
+
+    public static Object atualizarObjetos(Class<?> classe, Map<String, Object> objModificado, Object objBanco) {
+        objModificado.forEach((property, value) -> {
+            Field field = ReflectionUtils.findField(classe, property);
+            if (field != null) {
+                field.setAccessible(true);
+
+                if (!field.getType().isPrimitive() && !field.getType().getName().startsWith("java.lang")) {
+                    return;
+                }
+
+                if (value != null) {
+                    ReflectionUtils.setField(field, objBanco, value);
+                }
+            }
+        });
+
+        return objBanco;
+    }
+
+}

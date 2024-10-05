@@ -1,19 +1,22 @@
 package com.softweek.softweek.serviceImpl;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.softweek.softweek.dto.ProdutoDTO;
 import com.softweek.softweek.model.Produto;
 import com.softweek.softweek.model.Subcategoria;
 import com.softweek.softweek.repository.ProdutoRepository;
 import com.softweek.softweek.repository.SubcategoriaRepository;
 import com.softweek.softweek.service.ProdutoService;
+import com.softweek.softweek.utils.Utils;
 import jakarta.persistence.EntityNotFoundException;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ProdutoServiceImpl implements ProdutoService {
@@ -85,6 +88,24 @@ public class ProdutoServiceImpl implements ProdutoService {
         }
     }
 
+    @Override
+    public ResponseEntity<ProdutoDTO> atualizarProduto(ProdutoDTO produtoDTO) {
+        try {
+
+            Produto produtoExistente = produtoRepository.findById(produtoDTO.getIdProduto())
+                    .orElseThrow(() -> new EntityNotFoundException("Produto não encontrado"));
+
+            Produto produtoAtualizado = atualizarCamposProduto(produtoDTO, produtoExistente);
+
+            produtoAtualizado = produtoRepository.save(produtoAtualizado);
+
+            return ResponseEntity.status(HttpStatus.OK).body(montaProdutoDTO(produtoAtualizado));
+
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
     private ProdutoDTO montaProdutoDTO(Produto produto) {
         return ProdutoDTO.builder()
                 .idProduto(produto.getIdProduto())
@@ -93,5 +114,13 @@ public class ProdutoServiceImpl implements ProdutoService {
                 .descricao(produto.getDescricao())
                 .idSubcategoria(produto.getSubcategoria().getIdSubcategoria())
                 .build();
+    }
+
+    private Produto atualizarCamposProduto(ProdutoDTO produtoDTO, Produto produtoexistente) {
+        ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        Map<String, Object> produtMap = objectMapper.convertValue(produtoDTO, Map.class);
+
+        return (Produto) Utils.atualizarObjetos(Produto.class, produtMap, produtoexistente);
     }
 }

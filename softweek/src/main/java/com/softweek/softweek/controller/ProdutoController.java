@@ -33,7 +33,7 @@ public class ProdutoController {
         }
     }
 
-    @GetMapping("/listar-produtos")
+    @GetMapping(value = "/listar-produtos")
     public ResponseEntity<?> listarProdutos(@RequestParam("idSubcategoria") Long idSubcategoria) {
         try {
             ResponseEntity<?> response = produtoService.listarProdutos(idSubcategoria);
@@ -43,6 +43,13 @@ public class ProdutoController {
         }
     }
 
-
-
+    @PutMapping(value = "/atualizar-produto")
+    public ResponseEntity<?> atualizarProduto(@RequestBody ProdutoDTO produtoDTO) {
+        try {
+            ResponseEntity<?> response = produtoService.atualizarProduto(produtoDTO);
+            return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
 }

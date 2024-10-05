@@ -13,4 +13,6 @@ public interface ProdutoService {
 
     ResponseEntity<List<ProdutoDTO>> listarProdutos(Long idSubcategoria);
 
+    ResponseEntity<ProdutoDTO> atualizarProduto(ProdutoDTO produtoDTO);
+
 }
