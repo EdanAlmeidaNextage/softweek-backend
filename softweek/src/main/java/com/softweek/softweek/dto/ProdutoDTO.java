@@ -17,4 +17,6 @@ public class ProdutoDTO {
     private Double preco;
 
     private Boolean ativo;
+
+    private Long idSubcategoria;
 }
