@@ -1,4 +1,4 @@
-package com.softweek.softweek.dto;
+package com.softweek.softweek.domain.dto;
 
 import jakarta.persistence.Column;
 import lombok.Builder;

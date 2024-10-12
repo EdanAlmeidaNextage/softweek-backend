@@ -1,6 +1,6 @@
-package com.softweek.softweek.service;
+package com.softweek.softweek.domain.service;
 
-import com.softweek.softweek.dto.CategoriaDTO;
+import com.softweek.softweek.domain.dto.CategoriaDTO;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;

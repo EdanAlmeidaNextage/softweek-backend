@@ -1,4 +1,4 @@
-package com.softweek.softweek.utils;
+package com.softweek.softweek.domain.utils;
 
 import org.springframework.util.ReflectionUtils;
 

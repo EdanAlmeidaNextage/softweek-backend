@@ -1,4 +1,4 @@
-package com.softweek.softweek.model;
+package com.softweek.softweek.domain.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,12 +12,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "subcategoria")
+@Table(name = "categoria")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class Subcategoria implements Serializable {
+public class Categoria implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -25,11 +25,7 @@ public class Subcategoria implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idSubcategoria;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_categoria", nullable = false)
-    private Categoria categoria;
+    private Long idCategoria;
 
     @Column(name = "nome", length = 50)
     private String nome;
@@ -40,6 +36,6 @@ public class Subcategoria implements Serializable {
     @Column(name = "cor", length = 30)
     private String cor;
 
-    @OneToMany(mappedBy = "subcategoria", cascade =  CascadeType.ALL, orphanRemoval = true)
-    private Set<Produto> produtos = new HashSet<>();
+    @OneToMany(mappedBy = "categoria", cascade =  CascadeType.ALL, orphanRemoval = true)
+    private Set<Subcategoria> subcategorias = new HashSet<>();
 }

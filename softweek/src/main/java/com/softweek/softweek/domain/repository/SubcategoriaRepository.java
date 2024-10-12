@@ -1,6 +1,6 @@
-package com.softweek.softweek.repository;
+package com.softweek.softweek.domain.repository;
 
-import com.softweek.softweek.model.Subcategoria;
+import com.softweek.softweek.domain.model.Subcategoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

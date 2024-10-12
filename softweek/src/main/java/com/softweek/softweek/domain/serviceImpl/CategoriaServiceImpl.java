@@ -1,15 +1,14 @@
-package com.softweek.softweek.serviceImpl;
+package com.softweek.softweek.domain.serviceImpl;
 
-import com.softweek.softweek.dto.CategoriaDTO;
-import com.softweek.softweek.model.Categoria;
-import com.softweek.softweek.repository.Categoriarepository;
-import com.softweek.softweek.service.CategoriaService;
+import com.softweek.softweek.domain.dto.CategoriaDTO;
+import com.softweek.softweek.domain.model.Categoria;
+import com.softweek.softweek.domain.repository.Categoriarepository;
+import com.softweek.softweek.domain.service.CategoriaService;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

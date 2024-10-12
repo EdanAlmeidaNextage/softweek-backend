@@ -1,7 +1,7 @@
-package com.softweek.softweek.controller;
+package com.softweek.softweek.domain.controller;
 
-import com.softweek.softweek.dto.ProdutoDTO;
-import com.softweek.softweek.service.ProdutoService;
+import com.softweek.softweek.domain.dto.ProdutoDTO;
+import com.softweek.softweek.domain.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

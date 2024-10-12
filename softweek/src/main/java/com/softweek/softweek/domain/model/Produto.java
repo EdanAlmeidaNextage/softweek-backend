@@ -1,4 +1,4 @@
-package com.softweek.softweek.model;
+package com.softweek.softweek.domain.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

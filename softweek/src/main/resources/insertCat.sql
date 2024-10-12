@@ -1,0 +1,8 @@
+--Insert de Categorias
+INSERT INTO CATEGORIA (NOME, ATIVO, COR)
+VALUES
+    ('CAMISETAS', TRUE, 'AZUL'),
+    ('CALÇAS', TRUE, 'PRETO'),
+    ('JAQUETAS', TRUE, 'CINZA'),
+    ('VESTIDOS', TRUE, 'VERMELHO'),
+    ('SAPATOS', TRUE, 'MARROM');

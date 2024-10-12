@@ -1,10 +1,9 @@
-package com.softweek.softweek.serviceImpl;
+package com.softweek.softweek.domain.serviceImpl;
 
-import com.softweek.softweek.dto.CategoriaDTO;
-import com.softweek.softweek.dto.SubcategoriaDTO;
-import com.softweek.softweek.model.Subcategoria;
-import com.softweek.softweek.repository.SubcategoriaRepository;
-import com.softweek.softweek.service.SubcategoriaService;
+import com.softweek.softweek.domain.dto.SubcategoriaDTO;
+import com.softweek.softweek.domain.model.Subcategoria;
+import com.softweek.softweek.domain.repository.SubcategoriaRepository;
+import com.softweek.softweek.domain.service.SubcategoriaService;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

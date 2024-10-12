@@ -1,14 +1,14 @@
-package com.softweek.softweek.serviceImpl;
+package com.softweek.softweek.domain.serviceImpl;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.softweek.softweek.dto.ProdutoDTO;
-import com.softweek.softweek.model.Produto;
-import com.softweek.softweek.model.Subcategoria;
-import com.softweek.softweek.repository.ProdutoRepository;
-import com.softweek.softweek.repository.SubcategoriaRepository;
-import com.softweek.softweek.service.ProdutoService;
-import com.softweek.softweek.utils.Utils;
+import com.softweek.softweek.domain.dto.ProdutoDTO;
+import com.softweek.softweek.domain.model.Produto;
+import com.softweek.softweek.domain.model.Subcategoria;
+import com.softweek.softweek.domain.repository.ProdutoRepository;
+import com.softweek.softweek.domain.repository.SubcategoriaRepository;
+import com.softweek.softweek.domain.service.ProdutoService;
+import com.softweek.softweek.domain.utils.Utils;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
