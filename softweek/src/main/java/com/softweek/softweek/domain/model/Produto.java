@@ -1,5 +1,6 @@
 package com.softweek.softweek.domain.model;
 
+import com.softweek.softweek.domain.auditoria.Audit;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +16,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Data
 @Builder
-public class Produto implements Serializable {
+public class Produto extends Audit implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -37,7 +38,4 @@ public class Produto implements Serializable {
 
     @Column(name = "preco")
     private Double preco;
-
-    @Column(name = "ativo")
-    private Boolean ativo;
 }

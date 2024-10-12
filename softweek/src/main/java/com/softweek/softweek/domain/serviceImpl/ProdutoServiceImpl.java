@@ -38,7 +38,6 @@ public class ProdutoServiceImpl implements ProdutoService {
                     .nome(produtoDTO.getNome())
                     .descricao(produtoDTO.getDescricao())
                     .preco(produtoDTO.getPreco())
-                    .ativo(true)
                     .subcategoria(subcategoria)
                     .build();
 

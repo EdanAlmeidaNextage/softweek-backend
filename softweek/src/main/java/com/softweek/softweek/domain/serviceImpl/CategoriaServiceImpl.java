@@ -22,10 +22,10 @@ public class CategoriaServiceImpl implements CategoriaService {
         try {
             List<Categoria> categorias = categoriarepository.findAll();
 
-            return ResponseEntity.status(HttpStatus.OK).body(categorias.stream().map(x -> CategoriaDTO.builder()
+            return ResponseEntity.status(HttpStatus.OK).body(categorias.stream()
+                    .map(x -> CategoriaDTO.builder()
                     .idCategoria(x.getIdCategoria())
                     .nome(x.getNome())
-                    .cor(x.getCor())
                     .ativo(x.getAtivo())
                     .build()).toList());
         } catch (Exception e) {
@@ -33,5 +33,28 @@ public class CategoriaServiceImpl implements CategoriaService {
         }
 
 
+    }
+
+    @Override
+    public ResponseEntity<CategoriaDTO> salvarCategoria(CategoriaDTO categoriaDTO) {
+        Categoria categoria = Categoria.builder()
+                .nome(categoriaDTO.getNome())
+                .build();
+
+        categoria = categoriarepository.save(categoria);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(montaCategoriaDTO(categoria));
+    }
+
+    @Override
+    public ResponseEntity<CategoriaDTO> atualizarCategoria(CategoriaDTO categoriaDTO) {
+        return null;
+    }
+
+    private CategoriaDTO montaCategoriaDTO(Categoria categoria) {
+        return CategoriaDTO.builder()
+                .idCategoria(categoria.getIdCategoria())
+                .nome(categoria.getNome())
+                .build();
     }
 }

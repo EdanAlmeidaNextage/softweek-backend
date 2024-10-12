@@ -1,5 +1,6 @@
 package com.softweek.softweek.domain.model;
 
+import com.softweek.softweek.domain.auditoria.Audit;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +18,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Data
 @Builder
-public class Categoria implements Serializable {
+public class Categoria extends Audit implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -29,12 +30,6 @@ public class Categoria implements Serializable {
 
     @Column(name = "nome", length = 50)
     private String nome;
-
-    @Column(name = "ativo")
-    private Boolean ativo;
-
-    @Column(name = "cor", length = 30)
-    private String cor;
 
     @OneToMany(mappedBy = "categoria", cascade =  CascadeType.ALL, orphanRemoval = true)
     private Set<Subcategoria> subcategorias = new HashSet<>();

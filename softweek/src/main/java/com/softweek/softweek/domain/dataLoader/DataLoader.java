@@ -36,7 +36,7 @@ public class DataLoader {
                 if (subcategoriaRepository.count() == 0) {
                     ScriptUtils.executeSqlScript(dataSource.getConnection(), new ClassPathResource("insertSubcat.sql"));
                 }
-
+//
                 if (produtoRepository.count() == 0) {
                     ScriptUtils.executeSqlScript(dataSource.getConnection(), new ClassPathResource("insertProd.sql"));
                 }

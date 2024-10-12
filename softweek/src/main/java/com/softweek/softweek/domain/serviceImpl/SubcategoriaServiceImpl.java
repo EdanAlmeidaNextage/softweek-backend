@@ -27,7 +27,6 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
             return ResponseEntity.status(HttpStatus.OK).body(subcategorias.stream().map(x -> SubcategoriaDTO.builder()
                     .idSubcategoria(x.getIdSubcategoria())
                     .nome(x.getNome())
-                    .cor(x.getCor())
                     .ativo(x.getAtivo())
                     .build()).toList());
 

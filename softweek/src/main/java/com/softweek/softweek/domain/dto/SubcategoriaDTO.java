@@ -12,6 +12,4 @@ public class SubcategoriaDTO {
     private String nome;
 
     private Boolean ativo;
-
-    private String cor;
 }
