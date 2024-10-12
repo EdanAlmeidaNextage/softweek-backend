@@ -1,12 +1,11 @@
 package com.softweek.softweek.domain.controller;
 
+import com.softweek.softweek.domain.dto.SubcategoriaDTO;
 import com.softweek.softweek.domain.service.SubcategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -24,4 +23,25 @@ public class SubcategoriaController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
+    @PostMapping(value = "/salvar-subcategoria")
+    public ResponseEntity<?> salvarSubcategoria(@RequestBody SubcategoriaDTO subcategoriaDTO) {
+        try {
+            ResponseEntity<?> response = subcategoriaService.salvarSubcategoria(subcategoriaDTO);
+            return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+    @PutMapping(value = "/atualizar-subcategoria")
+    public ResponseEntity<?> atualizarSubcategoria(@RequestBody SubcategoriaDTO subcategoriaDTO) {
+        try {
+            ResponseEntity<?> response = subcategoriaService.atualizarSubcategoria(subcategoriaDTO);
+            return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
 }
