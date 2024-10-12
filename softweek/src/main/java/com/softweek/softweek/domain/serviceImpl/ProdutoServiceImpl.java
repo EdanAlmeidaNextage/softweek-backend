@@ -111,6 +111,9 @@ public class ProdutoServiceImpl implements ProdutoService {
                 .nome(produto.getNome())
                 .preco(produto.getPreco())
                 .descricao(produto.getDescricao())
+                .dataCriacao(Utils.formataDataString(produto.getDataCriacao()))
+                .dataEdicao(Utils.formataDataString(produto.getUltimaDataModificada()))
+                .ativo(produto.getAtivo())
                 .idSubcategoria(produto.getSubcategoria().getIdSubcategoria())
                 .build();
     }

@@ -18,5 +18,9 @@ public class ProdutoDTO {
 
     private Boolean ativo;
 
+    private String dataCriacao;
+
+    private String dataEdicao;
+
     private Long idSubcategoria;
 }
