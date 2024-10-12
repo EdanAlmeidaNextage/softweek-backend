@@ -15,5 +15,7 @@ public class CategoriaDTO {
 
     private Boolean ativo;
 
-    List<SubcategoriaDTO> subcategorias;
+    private String dataCriacao;
+
+    private String dataEdicao;
 }

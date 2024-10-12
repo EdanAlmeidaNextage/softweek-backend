@@ -3,6 +3,8 @@ package com.softweek.softweek.domain.utils;
 import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 public class Utils {
@@ -24,6 +26,12 @@ public class Utils {
         });
 
         return objBanco;
+    }
+
+    public static String formataDataString(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        return sdf.format(date);
     }
 
 }
