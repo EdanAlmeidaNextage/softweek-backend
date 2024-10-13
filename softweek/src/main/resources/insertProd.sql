@@ -1,79 +1,23 @@
 -- Produtos para CAMISETAS
-INSERT INTO produto (nome, descricao, preco, ativo, id_subcategoria, criado_por, data_criacao, ultima_modificacao_por, ultima_data_modificada)
-VALUES
-    ('Camiseta Básica de Algodão', 'Camiseta básica em algodão com diversas cores', 29.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'CAMISAS DE ALGODÃO'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Camiseta Estampada de Algodão', 'Camiseta de algodão com estampa criativa', 34.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'CAMISAS DE ALGODÃO'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Camisa Polo de Algodão', 'Camisa polo de algodão confortável', 49.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'CAMISAS POLO'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Camisa Polo Estampada', 'Camisa polo com estampa moderna', 54.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'CAMISAS POLO'),
-     'admin', NOW(), 'admin', NOW());
 
--- Produtos para CALÇAS
-INSERT INTO produto (nome, descricao, preco, ativo, id_subcategoria, criado_por, data_criacao, ultima_modificacao_por, ultima_data_modificada)
-VALUES
-    ('Calça Jeans Skinny', 'Calça jeans skinny com ajuste perfeito', 89.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'CALÇAS JEANS'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Calça Jeans Cargo', 'Calça jeans cargo com bolsos laterais', 99.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'CALÇAS JEANS'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Calça de Moletom Confortável', 'Calça de moletom para o dia a dia', 59.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'CALÇAS DE MOLETOM'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Calça de Moletom com Estampa', 'Calça de moletom com estampa divertida', 64.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'CALÇAS DE MOLETOM'),
-     'admin', NOW(), 'admin', NOW());
-
--- Produtos para JAQUETAS
-INSERT INTO produto (nome, descricao, preco, ativo, id_subcategoria, criado_por, data_criacao, ultima_modificacao_por, ultima_data_modificada)
-VALUES
-    ('Jaqueta de Inverno Impermeável', 'Jaqueta impermeável ideal para o inverno', 199.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'JAQUETAS DE INVERNO'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Jaqueta de Inverno com Forro', 'Jaqueta quentinha com forro', 229.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'JAQUETAS DE INVERNO'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Jaqueta Leve para Primavera', 'Jaqueta leve ideal para o clima de primavera', 119.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'JAQUETAS LEVES'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Jaqueta Leve com Capuz', 'Jaqueta leve com capuz removível', 134.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'JAQUETAS LEVES'),
-     'admin', NOW(), 'admin', NOW());
-
--- Produtos para VESTIDOS
-INSERT INTO produto (nome, descricao, preco, ativo, id_subcategoria, criado_por, data_criacao, ultima_modificacao_por, ultima_data_modificada)
-VALUES
-    ('Vestido Longo Estampado', 'Vestido longo com estampa vibrante', 129.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'VESTIDOS LONGOS'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Vestido Longo de Malha', 'Vestido longo em malha confortável', 139.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'VESTIDOS LONGOS'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Vestido Curto de Verão', 'Vestido curto ideal para o verão', 89.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'VESTIDOS CURTOS'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Vestido Curto de Festa', 'Vestido curto para festas e eventos', 149.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'VESTIDOS CURTOS'),
-     'admin', NOW(), 'admin', NOW());
-
--- Produtos para SAPATOS
-INSERT INTO produto (nome, descricao, preco, ativo, id_subcategoria, criado_por, data_criacao, ultima_modificacao_por, ultima_data_modificada)
-VALUES
-    ('Sapato de Salto Alto', 'Sapato de salto alto elegante', 199.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'SAPATOS DE SALTO'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Sapato de Salto Baixo', 'Sapato de salto baixo confortável', 179.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'SAPATOS DE SALTO'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Tênis Casual', 'Tênis casual para o dia a dia', 129.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'SAPATOS CASUAL'),
-     'admin', NOW(), 'admin', NOW()),
-    ('Sapatilha Casual', 'Sapatilha casual leve e confortável', 89.90, TRUE,
-     (SELECT id FROM subcategoria WHERE nome = 'SAPATOS CASUAL'),
-     'admin', NOW(), 'admin', NOW());
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (1, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Camiseta básica em algodão com diversas cores', 'Camiseta Básica de Algodão', 29.9, 1);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (2, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Camiseta de algodão com estampa criativa', 'Camiseta Estampada de Algodão', 34.9, 1);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (3, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Camisa polo de algodão confortável', 'Camisa Polo de Algodão', 49.9, 2);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (4, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Camisa polo com estampa moderna', 'Camisa Polo Estampada', 54.9, 2);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (5, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Calça jeans skinny com ajuste perfeito', 'Calça Jeans Skinny', 89.9, 3);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (6, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Calça jeans cargo com bolsos laterais', 'Calça Jeans Cargo', 99.9, 3);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (7, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Calça de moletom para o dia a dia', 'Calça de Moletom Confortável', 59.9, 4);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (8, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Calça de moletom com estampa divertida', 'Calça de Moletom com Estampa', 64.9, 4);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (9, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Jaqueta impermeável ideal para o inverno', 'Jaqueta de Inverno Impermeável', 199.9, 5);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (10, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Jaqueta quentinha com forro', 'Jaqueta de Inverno com Forro', 229.9, 5);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (11, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Jaqueta leve ideal para o clima de primavera', 'Jaqueta Leve para Primavera', 119.9, 6);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (12, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Jaqueta leve com capuz removível', 'Jaqueta Leve com Capuz', 134.9, 6);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (13, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Vestido longo com estampa vibrante', 'Vestido Longo Estampado', 129.9, 7);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (14, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Vestido longo em malha confortável', 'Vestido Longo de Malha', 139.9, 7);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (15, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Vestido curto ideal para o verão', 'Vestido Curto de Verão', 89.9, 8);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (16, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Vestido curto para festas e eventos', 'Vestido Curto de Festa', 149.9, 8);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (17, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Sapato de salto alto elegante', 'Sapato de Salto Alto', 199.9, 9);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (18, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Sapato de salto baixo confortável', 'Sapato de Salto Baixo', 179.9, 9);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (19, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Tênis casual para o dia a dia', 'Tênis Casual', 129.9, 10);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (20, b'1', 'admin', '2024-10-12 16:14:00.000000', '2024-10-12 16:14:00.000000', 'admin', 'Sapatilha casual leve e confortável', 'Sapatilha Casual', 89.9, 10);
+INSERT INTO `produto` (`id`, `ativo`, `criado_por`, `data_criacao`, `ultima_data_modificada`, `ultima_modificacao_por`, `descricao`, `nome`, `preco`, `id_subcategoria`) VALUES (21, b'1', 'user', '2024-10-12 18:32:05.413000', '2024-10-12 18:32:05.413000', 'user', 'Videogame playstation 4 com 1 controle e 2 jogos', 'Playstation 4', 2499.99, 11);
