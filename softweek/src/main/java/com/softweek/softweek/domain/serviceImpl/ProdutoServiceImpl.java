@@ -96,6 +96,13 @@ public class ProdutoServiceImpl implements ProdutoService {
 
             Produto produtoAtualizado = atualizarCamposProduto(produtoDTO, produtoExistente);
 
+            if (!produtoDTO.getIdSubcategoria().equals(produtoExistente.getSubcategoria().getIdSubcategoria())) {
+                Subcategoria subcategoria = subcategoriaRepository.findById(produtoDTO.getIdSubcategoria())
+                        .orElseThrow(() -> new EntityNotFoundException("Erro ao buscar subcategoria!"));
+
+                produtoAtualizado.setSubcategoria(subcategoria);
+            }
+
             produtoAtualizado = produtoRepository.save(produtoAtualizado);
 
             return ResponseEntity.status(HttpStatus.OK).body(montaProdutoDTO(produtoAtualizado));
