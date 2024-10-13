@@ -39,6 +39,7 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
                     .dataEdicao(Utils.formataDataString(x.getUltimaDataModificada()))
                     .ativo(x.getAtivo())
                     .idCategoria(x.getCategoria().getIdCategoria())
+                    .nomeCategoria(x.getCategoria().getNome())
                     .build()).toList());
 
         } catch (Exception e) {

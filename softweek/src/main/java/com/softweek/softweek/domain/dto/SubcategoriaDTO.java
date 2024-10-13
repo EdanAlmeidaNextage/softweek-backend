@@ -11,6 +11,8 @@ public class SubcategoriaDTO {
 
     private Long idCategoria;
 
+    private String nomeCategoria;
+
     private String nome;
 
     private Boolean ativo;
