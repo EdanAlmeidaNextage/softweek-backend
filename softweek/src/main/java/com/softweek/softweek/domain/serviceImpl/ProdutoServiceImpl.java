@@ -115,6 +115,9 @@ public class ProdutoServiceImpl implements ProdutoService {
                 .dataEdicao(Utils.formataDataString(produto.getUltimaDataModificada()))
                 .ativo(produto.getAtivo())
                 .idSubcategoria(produto.getSubcategoria().getIdSubcategoria())
+                .nomeSubcategoria(produto.getSubcategoria().getNome())
+                .idCategoria(produto.getSubcategoria().getCategoria().getIdCategoria())
+                .nomeCategoria(produto.getSubcategoria().getCategoria().getNome())
                 .build();
     }
 

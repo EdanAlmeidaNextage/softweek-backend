@@ -23,4 +23,10 @@ public class ProdutoDTO {
     private String dataEdicao;
 
     private Long idSubcategoria;
+
+    private String nomeSubcategoria;
+
+    private Long idCategoria;
+
+    private String nomeCategoria;
 }
