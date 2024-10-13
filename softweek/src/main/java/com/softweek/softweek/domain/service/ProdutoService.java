@@ -11,7 +11,7 @@ public interface ProdutoService {
 
     ResponseEntity<String> excluirProduto(Long idProduto);
 
-    ResponseEntity<List<ProdutoDTO>> listarProdutos(Long idSubcategoria);
+    ResponseEntity<List<ProdutoDTO>> listarProdutos();
 
     ResponseEntity<ProdutoDTO> atualizarProduto(ProdutoDTO produtoDTO);
 

@@ -68,10 +68,10 @@ public class ProdutoServiceImpl implements ProdutoService {
     }
 
     @Override
-    public ResponseEntity<List<ProdutoDTO>> listarProdutos(Long idSubcategoria) {
+    public ResponseEntity<List<ProdutoDTO>> listarProdutos() {
         try {
 
-            List<Produto> produtos = produtoRepository.findAllBySubcategoriaIdSubcategoriaAndAtivoTrue(idSubcategoria);
+            List<Produto> produtos = produtoRepository.findAll();
 
             if (!produtos.isEmpty()) {
                 List<ProdutoDTO> produtosDTO = produtos.stream()

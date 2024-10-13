@@ -35,9 +35,9 @@ public class ProdutoController {
     }
 
     @GetMapping(value = "/listar-produtos")
-    public ResponseEntity<?> listarProdutos(@RequestParam("idSubcategoria") Long idSubcategoria) {
+    public ResponseEntity<?> listarProdutos() {
         try {
-            ResponseEntity<?> response = produtoService.listarProdutos(idSubcategoria);
+            ResponseEntity<?> response = produtoService.listarProdutos();
             return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
