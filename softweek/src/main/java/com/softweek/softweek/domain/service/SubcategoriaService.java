@@ -8,6 +8,7 @@ import java.util.List;
 public interface SubcategoriaService {
 
     ResponseEntity<List<SubcategoriaDTO>> listarSubcategorias();
+    ResponseEntity<List<SubcategoriaDTO>> listarSubcategoriasCartegoria(Long idCategoria);
 
     ResponseEntity<SubcategoriaDTO> salvarSubcategoria(SubcategoriaDTO subcategoriaDTO);
 

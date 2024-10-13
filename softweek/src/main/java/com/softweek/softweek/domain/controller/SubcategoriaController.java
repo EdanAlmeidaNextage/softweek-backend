@@ -24,6 +24,16 @@ public class SubcategoriaController {
         }
     }
 
+    @GetMapping(value = "/listar-subcategorias-categoria")
+    public ResponseEntity<?> listarSubcategorias(@RequestParam("idCategoria") Long idCategoria) {
+        try {
+            ResponseEntity<?> response = subcategoriaService.listarSubcategoriasCartegoria(idCategoria);
+            return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
     @PostMapping(value = "/salvar-subcategoria")
     public ResponseEntity<?> salvarSubcategoria(@RequestBody SubcategoriaDTO subcategoriaDTO) {
         try {

@@ -48,6 +48,25 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
     }
 
     @Override
+    public ResponseEntity<List<SubcategoriaDTO>> listarSubcategoriasCartegoria(Long idCategoria) {
+        try {
+            List<Subcategoria> subcategorias = subcategoriaRepository.findAllByCategoriaIdCategoria(idCategoria);
+
+            return ResponseEntity.status(HttpStatus.OK).body(subcategorias.stream().map(x -> SubcategoriaDTO.builder()
+                    .idSubcategoria(x.getIdSubcategoria())
+                    .nome(x.getNome())
+                    .dataCriacao(Utils.formataDataString(x.getDataCriacao()))
+                    .dataEdicao(Utils.formataDataString(x.getUltimaDataModificada()))
+                    .ativo(x.getAtivo())
+                    .idCategoria(x.getCategoria().getIdCategoria())
+                    .nomeCategoria(x.getCategoria().getNome())
+                    .build()).toList());
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @Override
     public ResponseEntity<SubcategoriaDTO> salvarSubcategoria(SubcategoriaDTO subcategoriaDTO) {
 
         Categoria categoria = categoriarepository.findById(subcategoriaDTO.getIdCategoria())
