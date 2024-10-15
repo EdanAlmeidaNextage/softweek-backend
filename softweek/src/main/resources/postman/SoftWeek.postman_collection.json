@@ -30,6 +30,62 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "salvar-categoria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"ELETRONICOS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/salvar-categoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"salvar-categoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizar-categoria",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCategoria\": 6,\r\n    \"nome\": \"ELETRONICOS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/atualizar-categoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"atualizar-categoria"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -54,6 +110,87 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "salvar-subcategoria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"idCategoria\": 6,\r\n        \"nome\": \"COMPUTADORES\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/salvar-subcategoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"salvar-subcategoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizar-subcategoria",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"idSubcategoria\": 11,\r\n        \"idCategoria\": null,\r\n        \"nome\": \"CONSOLES\",\r\n        \"ativo\": true\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/atualizar-subcategoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"atualizar-subcategoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar-subcategorias-categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/listar-subcategorias-categoria?idCategoria=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"listar-subcategorias-categoria"
+							],
+							"query": [
+								{
+									"key": "idCategoria",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -61,12 +198,12 @@
 			"name": "produto",
 			"item": [
 				{
-					"name": "listar-produtos-subcategoria",
+					"name": "listar-produtos",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/listar-produtos?idSubcategoria=1",
+							"raw": "http://localhost:8080/listar-produtos",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -74,12 +211,6 @@
 							"port": "8080",
 							"path": [
 								"listar-produtos"
-							],
-							"query": [
-								{
-									"key": "idSubcategoria",
-									"value": "1"
-								}
 							]
 						}
 					},
@@ -92,7 +223,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Tênis Puma Casual\",\r\n    \"descricao\": \"Tênis casual para o dia a dia\",\r\n    \"preco\": 129.90,\r\n    \"idSubcategoria\": 10\r\n}",
+							"raw": "{\r\n    \"nome\": \"Playstation 4\",\r\n    \"descricao\": \"Videogame playstation 4 com 1 controle e 1 jogo\",\r\n    \"preco\": 2499.90,\r\n    \"idSubcategoria\": 11\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -120,7 +251,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idProduto\": 21,\r\n    \"nome\": \"Tênis Puma\",\r\n    \"descricao\": \"Extremamente confortável e moderno\",\r\n    \"preco\": 129.90,\r\n    \"idSubcategoria\": 10\r\n}",
+							"raw": "{\r\n    \"idProduto\": 21,\r\n    \"nome\": null,\r\n    \"descricao\": \"Videogame playstation 4 com 1 controle e 2 jogos\",\r\n    \"preco\": 2499.99,\r\n    \"idSubcategoria\": 11\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

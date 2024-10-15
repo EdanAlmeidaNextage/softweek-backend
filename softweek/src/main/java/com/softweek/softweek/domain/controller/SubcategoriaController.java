@@ -3,6 +3,7 @@ package com.softweek.softweek.domain.controller;
 import com.softweek.softweek.domain.dto.SubcategoriaDTO;
 import com.softweek.softweek.domain.service.SubcategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +25,8 @@ public class SubcategoriaController {
         }
     }
 
-    @GetMapping(value = "/listar-subcategorias-categoria")
-    public ResponseEntity<?> listarSubcategorias(@RequestParam("idCategoria") Long idCategoria) {
+    @GetMapping(value = "/listar-subcategorias-categoria/{idCategoria}")
+    public ResponseEntity<?> listarSubcategorias(@PathVariable Long idCategoria) {
         try {
             ResponseEntity<?> response = subcategoriaService.listarSubcategoriasCartegoria(idCategoria);
             return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
