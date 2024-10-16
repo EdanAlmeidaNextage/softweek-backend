@@ -31,9 +31,6 @@ public class CategoriaServiceImpl implements CategoriaService {
                     .map(x -> CategoriaDTO.builder()
                     .idCategoria(x.getIdCategoria())
                     .nome(x.getNome())
-                    .dataCriacao(Utils.formataDataString(x.getDataCriacao()))
-                    .dataEdicao(Utils.formataDataString(x.getUltimaDataModificada()))
-                    .ativo(x.getAtivo())
                     .build()).toList());
         } catch (Exception e) {
             throw e;
@@ -53,25 +50,10 @@ public class CategoriaServiceImpl implements CategoriaService {
         return ResponseEntity.status(HttpStatus.CREATED).body(montaCategoriaDTO(categoria));
     }
 
-    @Override
-    public ResponseEntity<CategoriaDTO> atualizarCategoria(CategoriaDTO categoriaDTO) {
-        Categoria categoriaExistente = categoriarepository.findById(categoriaDTO.getIdCategoria())
-                .orElseThrow(() -> new EntityNotFoundException("Categoria não encontrada"));
-
-        Categoria categoriaAtualizada = atualizarCamposCategoria(categoriaDTO, categoriaExistente);
-
-        categoriaAtualizada = categoriarepository.save(categoriaAtualizada);
-
-        return ResponseEntity.status(HttpStatus.OK).body(montaCategoriaDTO(categoriaAtualizada));
-    }
-
     private CategoriaDTO montaCategoriaDTO(Categoria categoria) {
         return CategoriaDTO.builder()
                 .idCategoria(categoria.getIdCategoria())
                 .nome(categoria.getNome())
-                .ativo(categoria.getAtivo())
-                .dataCriacao(Utils.formataDataString(categoria.getDataCriacao()))
-                .dataEdicao(Utils.formataDataString(categoria.getUltimaDataModificada()))
                 .build();
     }
 

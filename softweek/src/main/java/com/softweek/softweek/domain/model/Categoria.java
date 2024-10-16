@@ -18,7 +18,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Data
 @Builder
-public class Categoria extends Audit implements Serializable {
+public class Categoria implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;

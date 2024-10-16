@@ -13,6 +13,4 @@ public interface ProdutoService {
 
     ResponseEntity<List<ProdutoDTO>> listarProdutos();
 
-    ResponseEntity<ProdutoDTO> atualizarProduto(ProdutoDTO produtoDTO);
-
 }

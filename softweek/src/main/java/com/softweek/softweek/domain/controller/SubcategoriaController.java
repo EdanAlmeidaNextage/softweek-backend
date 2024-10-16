@@ -45,14 +45,4 @@ public class SubcategoriaController {
         }
     }
 
-    @PutMapping(value = "/atualizar-subcategoria")
-    public ResponseEntity<?> atualizarSubcategoria(@RequestBody SubcategoriaDTO subcategoriaDTO) {
-        try {
-            ResponseEntity<?> response = subcategoriaService.atualizarSubcategoria(subcategoriaDTO);
-            return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
-    }
-
 }

@@ -11,6 +11,4 @@ public interface SubcategoriaService {
     ResponseEntity<List<SubcategoriaDTO>> listarSubcategoriasCartegoria(Long idCategoria);
 
     ResponseEntity<SubcategoriaDTO> salvarSubcategoria(SubcategoriaDTO subcategoriaDTO);
-
-    ResponseEntity<SubcategoriaDTO> atualizarSubcategoria(SubcategoriaDTO subcategoriaDTO);
 }

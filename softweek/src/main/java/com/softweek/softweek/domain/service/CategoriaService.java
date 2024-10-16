@@ -10,6 +10,4 @@ public interface CategoriaService {
     ResponseEntity<List<CategoriaDTO>> listarCategorias();
 
     ResponseEntity<CategoriaDTO> salvarCategoria(CategoriaDTO categoriaDTO);
-
-    ResponseEntity<CategoriaDTO> atualizarCategoria(CategoriaDTO categoriaDTO);
 }

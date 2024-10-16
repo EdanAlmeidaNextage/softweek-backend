@@ -28,10 +28,4 @@ public class Utils {
         return objBanco;
     }
 
-    public static String formataDataString(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-        return sdf.format(date);
-    }
-
 }

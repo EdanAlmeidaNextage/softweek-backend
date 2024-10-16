@@ -35,9 +35,6 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
             return ResponseEntity.status(HttpStatus.OK).body(subcategorias.stream().map(x -> SubcategoriaDTO.builder()
                     .idSubcategoria(x.getIdSubcategoria())
                     .nome(x.getNome())
-                    .dataCriacao(Utils.formataDataString(x.getDataCriacao()))
-                    .dataEdicao(Utils.formataDataString(x.getUltimaDataModificada()))
-                    .ativo(x.getAtivo())
                     .idCategoria(x.getCategoria().getIdCategoria())
                     .nomeCategoria(x.getCategoria().getNome())
                     .build()).toList());
@@ -55,9 +52,6 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
             return ResponseEntity.status(HttpStatus.OK).body(subcategorias.stream().map(x -> SubcategoriaDTO.builder()
                     .idSubcategoria(x.getIdSubcategoria())
                     .nome(x.getNome())
-                    .dataCriacao(Utils.formataDataString(x.getDataCriacao()))
-                    .dataEdicao(Utils.formataDataString(x.getUltimaDataModificada()))
-                    .ativo(x.getAtivo())
                     .idCategoria(x.getCategoria().getIdCategoria())
                     .nomeCategoria(x.getCategoria().getNome())
                     .build()).toList());
@@ -82,25 +76,10 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
         return ResponseEntity.status(HttpStatus.CREATED).body(montarSubcategoriaDTO(subcategoria));
     }
 
-    @Override
-    public ResponseEntity<SubcategoriaDTO> atualizarSubcategoria(SubcategoriaDTO subcategoriaDTO) {
-        Subcategoria subCatExistente = subcategoriaRepository.findById(subcategoriaDTO.getIdSubcategoria())
-                .orElseThrow(() -> new EntityNotFoundException("Subcategoria não encontrada"));
-
-        Subcategoria subcategoriaAtualizada = atualizarCamposSubcat(subcategoriaDTO, subCatExistente);
-
-        subcategoriaAtualizada = subcategoriaRepository.save(subcategoriaAtualizada);
-
-        return ResponseEntity.status(HttpStatus.OK).body(montarSubcategoriaDTO(subcategoriaAtualizada));
-    }
-
     private SubcategoriaDTO montarSubcategoriaDTO(Subcategoria subcategoria) {
         return SubcategoriaDTO.builder()
                 .idSubcategoria(subcategoria.getIdSubcategoria())
                 .nome(subcategoria.getNome())
-                .ativo(subcategoria.getAtivo())
-                .dataCriacao(Utils.formataDataString(subcategoria.getDataCriacao()))
-                .dataEdicao(Utils.formataDataString(subcategoria.getUltimaDataModificada()))
                 .build();
     }
 

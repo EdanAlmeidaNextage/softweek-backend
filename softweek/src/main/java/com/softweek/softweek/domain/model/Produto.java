@@ -16,7 +16,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Data
 @Builder
-public class Produto extends Audit implements Serializable {
+public class Produto implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;

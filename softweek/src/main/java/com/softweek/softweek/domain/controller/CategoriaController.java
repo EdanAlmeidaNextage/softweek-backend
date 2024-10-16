@@ -34,14 +34,4 @@ public class CategoriaController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
-
-    @PutMapping(value = "/atualizar-categoria")
-    public ResponseEntity<?> atualizarCategoria(@RequestBody CategoriaDTO categoriaDTO) {
-        try {
-            ResponseEntity<?> response = categoriaService.atualizarCategoria(categoriaDTO);
-            return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
-    }
 }
