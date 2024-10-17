@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 @Data
@@ -38,8 +39,6 @@ public class CategoriaServiceImpl implements CategoriaService {
         } catch (Exception e) {
             throw e;
         }
-
-
     }
 
     @Override
@@ -63,6 +62,18 @@ public class CategoriaServiceImpl implements CategoriaService {
         categoriaAtualizada = categoriarepository.save(categoriaAtualizada);
 
         return ResponseEntity.status(HttpStatus.OK).body(montaCategoriaDTO(categoriaAtualizada));
+    }
+
+    @Override
+    public ResponseEntity<CategoriaDTO> deletarCategoria(Long categoriaDTO) {
+        Optional<Categoria> categoriaOptional = categoriarepository.findById(categoriaDTO);
+
+        if(categoriaOptional.isPresent()){
+            categoriarepository.delete(categoriaOptional.get());
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 
     private CategoriaDTO montaCategoriaDTO(Categoria categoria) {

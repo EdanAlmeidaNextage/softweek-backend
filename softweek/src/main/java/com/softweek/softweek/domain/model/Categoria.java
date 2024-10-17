@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -28,7 +29,7 @@ public class Categoria extends Audit implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCategoria;
 
-    @Column(name = "nome", length = 50)
+    @Column(name = "nome", length = 50, nullable = false)
     private String nome;
 
     @OneToMany(mappedBy = "categoria", cascade =  CascadeType.ALL, orphanRemoval = true)

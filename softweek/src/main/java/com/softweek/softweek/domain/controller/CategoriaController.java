@@ -44,4 +44,14 @@ public class CategoriaController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
+    @DeleteMapping(value = "/deletar-categoria/{id}")
+    public ResponseEntity<?> deletarCategoria(@PathVariable("id") Long idCategoria) {
+        try {
+            ResponseEntity<?> response = categoriaService.deletarCategoria(idCategoria);
+            return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
 }

@@ -2,13 +2,12 @@ package com.softweek.softweek.domain.model;
 
 import com.softweek.softweek.domain.auditoria.Audit;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "produto")
@@ -26,10 +25,6 @@ public class Produto extends Audit implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProduto;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_subcategoria", nullable = false)
-    private Subcategoria subcategoria;
-
     @Column(name = "nome", length = 50)
     private String nome;
 
@@ -38,4 +33,21 @@ public class Produto extends Audit implements Serializable {
 
     @Column(name = "preco")
     private Double preco;
+
+    @Column(name = "ativo")
+    private Boolean ativo;
+
+    @Column(name = "data_criacao", updatable = false)
+    private Date dataCriacao;
+
+    @Column(name = "data_edicao")
+    private Date dataEdicao;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", nullable = false)
+    private Categoria categoria;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_subcategoria")
+    private Subcategoria subcategoria;
 }

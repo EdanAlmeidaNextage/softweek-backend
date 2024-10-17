@@ -12,4 +12,6 @@ public interface CategoriaService {
     ResponseEntity<CategoriaDTO> salvarCategoria(CategoriaDTO categoriaDTO);
 
     ResponseEntity<CategoriaDTO> atualizarCategoria(CategoriaDTO categoriaDTO);
+
+    ResponseEntity<CategoriaDTO> deletarCategoria(Long categoriaDTO);
 }
