@@ -1,0 +1,24 @@
+INSERT INTO Clientes (nome, email, telefone, documento_identidade) VALUES
+('Ana Souza', 'ana.souza@email.com', '11923456789', '34567890123'),
+('Pedro Alves', 'pedro.alves@email.com', '11987651234', '56789012345'),
+('Laura Pereira', 'laura.pereira@email.com', '11912349876', '78901234567');
+
+INSERT INTO Clientes (nome, email, telefone, documento_identidade) VALUES
+('Bruno Costa', 'bruno.costa@email.com', '11934567891', '89012345678'),
+('Fernanda Lima', 'fernanda.lima@email.com', '11998765432', '90123456789'),
+('Gabriel Martins', 'gabriel.martins@email.com', '11876543219', '01234567890');
+
+INSERT INTO Clientes (nome, email, telefone, documento_identidade) VALUES
+('Patrícia Ribeiro', 'patricia.ribeiro@email.com', '11999887766', '11223344556'),
+('Ricardo Ferreira', 'ricardo.ferreira@email.com', '11987652345', '22334455667'),
+('Sofia Melo', 'sofia.melo@email.com', '11976549812', '33445566778');
+
+INSERT INTO Clientes (nome, email, telefone, documento_identidade) VALUES
+('Diego Costa', 'diego.costa@email.com', '11965432198', '44556677889'),
+('Juliana Rocha', 'juliana.rocha@email.com', '11954321987', '55667788990'),
+('Lucas Silva', 'lucas.silva@email.com', '11943219876', '66778899001');
+
+INSERT INTO Clientes (nome, email, telefone, documento_identidade) VALUES
+('Roberto Nunes', 'roberto.nunes@email.com', '11932198765', '77889900112'),
+('Carla Torres', 'carla.torres@email.com', '11921987654', '88990011223'),
+('Paulo Batista', 'paulo.batista@email.com', '11919876543', '99001122334');
