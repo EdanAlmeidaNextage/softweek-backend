@@ -27,8 +27,8 @@ public class ClienteServiceImpl implements ClienteService {
                 .map(cliente -> ClienteDTO.builder()
                         .id(cliente.getId())
                         .nome(cliente.getNome())
-                        .numero(cliente.getNumero()) // Aqui deve corresponder ao método getNumero()
-                        .endereco(cliente.getEndereco()) // Aqui deve corresponder ao método getEndereco()
+                        .numero(cliente.getNumero())
+                        .endereco(cliente.getEndereco())
                         .build()).toList());
     }
 
@@ -36,8 +36,8 @@ public class ClienteServiceImpl implements ClienteService {
     public ResponseEntity<ClienteDTO> salvarCliente(ClienteDTO clienteDTO) {
         Cliente cliente = Cliente.builder()
                 .nome(clienteDTO.getNome())
-                .numero(clienteDTO.getNumero()) // Atributo adicionado
-                .endereco(clienteDTO.getEndereco()) // Atributo adicionado
+                .numero(clienteDTO.getNumero())
+                .endereco(clienteDTO.getEndereco())
                 .build();
 
         cliente = clienteRepository.save(cliente);
@@ -66,8 +66,8 @@ public class ClienteServiceImpl implements ClienteService {
         return ClienteDTO.builder()
                 .id(cliente.getId())
                 .nome(cliente.getNome())
-                .numero(cliente.getNumero()) // Atributo adicionado
-                .endereco(cliente.getEndereco()) // Atributo adicionado
+                .numero(cliente.getNumero())
+                .endereco(cliente.getEndereco())
                 .build();
     }
 }

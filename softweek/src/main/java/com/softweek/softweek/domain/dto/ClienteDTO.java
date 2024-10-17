@@ -6,8 +6,8 @@ import lombok.Data;
 @Data
 @Builder
 public class ClienteDTO {
-    private Long id; // ID do cliente
-    private String nome; // Nome do cliente
-    private String numero; // Número de contato
-    private String endereco; // Endereço do cliente
+    private Long id;
+    private String nome;
+    private String numero;
+    private String endereco;
 }

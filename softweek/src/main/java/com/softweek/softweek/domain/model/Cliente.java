@@ -25,16 +25,14 @@ public class Cliente implements Serializable {
     private Long id;
 
     private String nome;
-    private String numero; // Adicionei o atributo 'numero'
-    private String endereco; // Adicionei o atributo 'endereco'
+    private String numero;
+    private String endereco;
 
-    // Método para obter o nome completo
     public String getNomeCompleto() {
         if (this.nome != null) {
             return this.nome;
         }
-        return ""; // Retorno padrão se o nome for nulo
+        return "";
     }
 
-    // Adicione outros métodos conforme necessário
 }

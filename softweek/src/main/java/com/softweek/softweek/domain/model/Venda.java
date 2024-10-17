@@ -25,15 +25,15 @@ public class Venda extends Audit implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // ID da venda
+    private Long id;
 
     @Column(name = "id_cliente")
-    private Long idCliente; // ID do cliente que fez a compra
+    private Long idCliente;
 
     @ElementCollection
     @Column(name = "id_produto")
-    private List<Long> idProdutos; // Lista de IDs dos produtos vendidos
+    private List<Long> idProdutos;
 
     @Column(name = "data_venda")
-    private String dataVenda; // Data da venda
+    private String dataVenda;
 }

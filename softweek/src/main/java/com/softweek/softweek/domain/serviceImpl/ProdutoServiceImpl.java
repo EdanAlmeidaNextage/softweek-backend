@@ -50,9 +50,8 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
     public ResponseEntity<ProdutoDTO> atualizarProduto(ProdutoDTO produtoDTO) {
-        // Aqui você deve implementar a lógica para atualizar o produto
-        // ...
-        return ResponseEntity.status(HttpStatus.OK).body(produtoDTO); // Exemplo de retorno
+
+        return ResponseEntity.status(HttpStatus.OK).body(produtoDTO);
     }
 
     @Override

@@ -4,7 +4,7 @@ import com.softweek.softweek.domain.dto.VendaDTO;
 import com.softweek.softweek.domain.model.Venda;
 import com.softweek.softweek.domain.repository.VendaRepository;
 import com.softweek.softweek.domain.service.VendaService;
-import jakarta.persistence.EntityNotFoundException; // Certifique-se de importar corretamente
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
