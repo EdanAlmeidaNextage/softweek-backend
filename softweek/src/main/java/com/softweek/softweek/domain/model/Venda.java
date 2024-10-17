@@ -9,16 +9,15 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Entity
-@Table(name = "categoria")
+@Table(name = "venda")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class Categoria extends Audit implements Serializable {
+public class Venda extends Audit implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -26,11 +25,15 @@ public class Categoria extends Audit implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCategoria;
+    private Long id; // ID da venda
 
-    @Column(name = "nome", length = 50)
-    private String nome;
+    @Column(name = "id_cliente")
+    private Long idCliente; // ID do cliente que fez a compra
 
-    @OneToMany(mappedBy = "categoria", cascade =  CascadeType.ALL, orphanRemoval = true)
-    private Set<Subcategoria> subcategorias = new HashSet<>();
+    @ElementCollection
+    @Column(name = "id_produto")
+    private List<Long> idProdutos; // Lista de IDs dos produtos vendidos
+
+    @Column(name = "data_venda")
+    private String dataVenda; // Data da venda
 }

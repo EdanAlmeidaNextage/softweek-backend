@@ -19,7 +19,7 @@ public abstract class Audit {
 
     @CreatedBy
     @Column(name = "criado_por", nullable = true, length = 50, updatable = false)
-    private String criado_por = "user";
+    private String criadoPor = "user";
 
     @CreatedDate
     @Column(name = "data_criacao", updatable = false)

@@ -7,12 +7,11 @@ import java.util.List;
 
 public interface ProdutoService {
 
-    ResponseEntity<ProdutoDTO> salvarProduto(ProdutoDTO produtoDTO);
-
-    ResponseEntity<String> excluirProduto(Long idProduto);
-
     ResponseEntity<List<ProdutoDTO>> listarProdutos();
+
+    ResponseEntity<ProdutoDTO> salvarProduto(ProdutoDTO produtoDTO);
 
     ResponseEntity<ProdutoDTO> atualizarProduto(ProdutoDTO produtoDTO);
 
+    ResponseEntity<Void> excluirProduto(Long idProduto);
 }

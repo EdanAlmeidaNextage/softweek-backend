@@ -1,58 +1,57 @@
 package com.softweek.softweek.domain.controller;
 
-import com.softweek.softweek.domain.dto.SubcategoriaDTO;
-import com.softweek.softweek.domain.service.SubcategoriaService;
+import com.softweek.softweek.domain.dto.ClienteDTO;
+import com.softweek.softweek.domain.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-public class SubcategoriaController {
+@RequestMapping("/clientes")
+public class ClienteController {
 
     @Autowired
-    private SubcategoriaService subcategoriaService;
+    private ClienteService clienteService;
 
-    @GetMapping(value = "/listar-subcategorias")
-    public ResponseEntity<?> listarSubcategorias() {
+    @GetMapping(value = "/listar")
+    public ResponseEntity<?> listarClientes() {
         try {
-            ResponseEntity<?> response = subcategoriaService.listarSubcategorias();
+            ResponseEntity<?> response = clienteService.listarClientes();
             return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 
-    @GetMapping(value = "/listar-subcategorias-categoria/{idCategoria}")
-    public ResponseEntity<?> listarSubcategorias(@PathVariable Long idCategoria) {
+    @PostMapping(value = "/salvar")
+    public ResponseEntity<?> salvarCliente(@RequestBody ClienteDTO clienteDTO) {
         try {
-            ResponseEntity<?> response = subcategoriaService.listarSubcategoriasCartegoria(idCategoria);
+            ResponseEntity<?> response = clienteService.salvarCliente(clienteDTO);
             return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 
-    @PostMapping(value = "/salvar-subcategoria")
-    public ResponseEntity<?> salvarSubcategoria(@RequestBody SubcategoriaDTO subcategoriaDTO) {
+    @PutMapping(value = "/atualizar")
+    public ResponseEntity<?> atualizarCliente(@RequestBody ClienteDTO clienteDTO) {
         try {
-            ResponseEntity<?> response = subcategoriaService.salvarSubcategoria(subcategoriaDTO);
+            ResponseEntity<?> response = clienteService.atualizarCliente(clienteDTO);
             return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 
-    @PutMapping(value = "/atualizar-subcategoria")
-    public ResponseEntity<?> atualizarSubcategoria(@RequestBody SubcategoriaDTO subcategoriaDTO) {
+    @DeleteMapping(value = "/deletar")
+    public ResponseEntity<?> excluirCliente(@RequestParam("idCliente") Long idCliente) {
         try {
-            ResponseEntity<?> response = subcategoriaService.atualizarSubcategoria(subcategoriaDTO);
+            ResponseEntity<?> response = clienteService.excluirCliente(idCliente);
             return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
-
 }

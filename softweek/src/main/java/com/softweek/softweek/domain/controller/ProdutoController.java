@@ -9,32 +9,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/produtos")
 public class ProdutoController {
 
     @Autowired
     private ProdutoService produtoService;
 
-    @PostMapping(value = "/salvar-produto")
-    public ResponseEntity<?> salvarProduto(@RequestBody ProdutoDTO produtoDTO) {
-        try {
-            ResponseEntity<?> response = produtoService.salvarProduto(produtoDTO);
-            return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
-    }
-
-    @DeleteMapping("/deletar-produto")
-    public ResponseEntity<?> excluirProduto(@RequestParam("idProduto") Long idProduto) {
-        try {
-            ResponseEntity<?> response = produtoService.excluirProduto(idProduto);
-            return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
-    }
-
-    @GetMapping(value = "/listar-produtos")
+    @GetMapping(value = "/listar")
     public ResponseEntity<?> listarProdutos() {
         try {
             ResponseEntity<?> response = produtoService.listarProdutos();
@@ -44,10 +25,30 @@ public class ProdutoController {
         }
     }
 
-    @PutMapping(value = "/atualizar-produto")
+    @PostMapping(value = "/salvar")
+    public ResponseEntity<?> salvarProduto(@RequestBody ProdutoDTO produtoDTO) {
+        try {
+            ResponseEntity<?> response = produtoService.salvarProduto(produtoDTO);
+            return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+    @PutMapping(value = "/atualizar")
     public ResponseEntity<?> atualizarProduto(@RequestBody ProdutoDTO produtoDTO) {
         try {
             ResponseEntity<?> response = produtoService.atualizarProduto(produtoDTO);
+            return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping(value = "/deletar")
+    public ResponseEntity<?> excluirProduto(@RequestParam("idProduto") Long idProduto) {
+        try {
+            ResponseEntity<?> response = produtoService.excluirProduto(idProduto);
             return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
